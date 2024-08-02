@@ -16,8 +16,8 @@ Each pair of LED lights on both sides is connected with wires flowing below the 
 ![Wires connected below four pieces of paper](https://github.com/user-attachments/assets/99818a45-f750-412b-b9f1-e5a549ff7251)
 
 
-## Code
-Here's a sample of the beginning of fetchplanedata.ino, where you're expected to change some of these variables to your preferences (airport code, minimum altitude for approach, etc.)
+## The Code
+Here's a sample of [fetchplanedata.ino](fetchplanedata.ino), where you're expected to change some of these variables to match your preferences (airport code, minimum altitude for approach, etc.).
 ```cpp
 //You will need an online flight tracker to adjust some of these values. track a real plane approaching the runway or use a map to see where it has what values (position, altitude)
 String airportCode = "YYZ"; //Airport code of the airport the planes will be arriving at
