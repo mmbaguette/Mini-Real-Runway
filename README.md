@@ -15,4 +15,22 @@ Each pair of LED lights on both sides is connected with wires flowing below the 
 
 ![Wires connected below four pieces of paper](https://github.com/user-attachments/assets/99818a45-f750-412b-b9f1-e5a549ff7251)
 
+
+## Code
+Here's a sample of the beginning of fetchplanedata.ino, where you're expected to change some of these variables to your preferences (airport code, minimum altitude for approach, etc.)
+```cpp
+//You will need an online flight tracker to adjust some of these values. track a real plane approaching the runway or use a map to see where it has what values (position, altitude)
+String airportCode = "YYZ"; //Airport code of the airport the planes will be arriving at
+const float detectionBoxSize = 0.3; //controls the size of the bounding box around the airport that will pick up incoming aircraft (longitude/latitude units); use google maps and right click where you want to see longitude and latitude of that point on the map
+const int landingHeight = 700; //the altitude when the aircraft is considered "landed" or over the runway; the LED runway lights will all turn off when the plane is focus reaches this height or lower, so make this a little smaller (~100 less) if you want the last lights to stay on for a few more seconds after the plane has landed; or just increase the last altitude in runwayHeights by that same amount
+int minimumAlt = 750; //minimum altitude for an aircraft in order to be considered for arrival
+const bool debug = false; //enable debug mode (more verbose print statements)
+const int[LED_PAIRS] runwayHeights = [ //the height in feet of when each LED pair should start to light up when the approaching aircraft reaches that height, from farthest to closest. make sure you have just as many values as you have in LED_PAIRS; this might be obvious but don't but 10 different heights if you only have three pairs of LED lights. It has to be the same number of LED lights that you have set up. ADD A COMMA AFTER EACH NUMBER 
+  3000,
+  2000,
+  1300,
+  800, // this last height is when all the runway lights are finally lit; it will stay on until the plane reaches the landingHeight altitude, so change this depending on how long you want to keep the runway lights on after landing
+]; // all runway turn off when the plane reaches landingHeight
+```
+
 This project was made in June 2023 and only published now, so the photos are a little old.
